@@ -33,22 +33,36 @@ Experiments were conducted on **21 datasets** from the [UEA & UCR Time Series Cl
 - **Training and testing time**
 
 ---
+## Repository structure
 
-## Results
+## 📂 Repository structure
 
-### Execution Time
+- `DrCIF-ROCKET/`
+  - `results/`
+    - `plot_time_test_train.png`
+    - `scatterplot.png`
+    - `cdd_accuracy_mean.png`
+  - `DrROCKET.ipynb` — Main implementation and experiments
+  - `Optimal_Kernel_Size_Analysis.ipynb` — Kernel number analysis and extended results
+  - `README.md` — This file
+
+---
+
+## Results summary
+
+### Execution time
 The **original DrCIF** showed the highest computational cost, mainly due to its complex feature extraction process.  
 In contrast, the **ROCKET-based variants** drastically reduced training and testing time, especially **DrRocket-4**, which achieved an average runtime below 20 seconds.
 
 <p align="center">
-  <img src="results/plots/plot_time_test_train.png" width="70%">
+  <img src="results/plot_time_test_train.png" width="70%">
   <br>
   <em>Figure 1 – Average training and testing time per algorithm.</em>
 </p>
 
 ---
 
-### Trade-off Between Cost and Performance
+### Trade-off between cost and performance
 The figure below illustrates the relationship between training time and average accuracy across the 21 datasets.
 
 - **DrRocket-4** is the fastest but shows significant accuracy losses.  
@@ -56,21 +70,34 @@ The figure below illustrates the relationship between training time and average 
 - **DrRocket-50** provides **the best balance** between efficiency and predictive performance.
 
 <p align="center">
-  <img src="results/plots/scatterplot.png" width="70%">
+  <img src="results/scatterplot.png" width="70%">
   <br>
   <em>Figure 2 – Trade-off between training time and average accuracy.</em>
 </p>
 
 ---
 
-### 📈 Statistical Comparison
+### 📈 Statistical comparison
 The **Critical Difference Diagram** (Figure 3) shows that **DrRocket-50** achieved the best average performance among the hybrid variants, without statistically significant differences from the original DrCIF.
 
 <p align="center">
-  <img src="results/plots/cdd_accuracy_mean.png" width="80%">
+  <img src="results/cdd_accuracy_mean.png" width="80%">
   <br>
   <em>Figure 3 – Critical Difference Diagram for average accuracy.</em>
 </p>
+
+---
+
+## Extended Analysis
+
+The notebook **`Optimal_Kernel_Size_Analysis.ipynb`** contains additional experiments and visualizations, including:
+- The effect of **kernel quantity** on model stability  
+- **Accuracy comparison by dataset** across different kernel configurations  
+- **Ranking heatmaps by dataset** to visualize algorithm performance  
+- **Time ranking heatmaps by dataset** to analyze computational efficiency  
+- **Critical Difference Diagrams (CDD)** for all metrics, including accuracy, precision, recall, and F1-score  
+
+These analyses help identify the **optimal number of kernels** that minimizes computational cost while maintaining competitive accuracy.
 
 ---
 
